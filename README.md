@@ -10,10 +10,10 @@ Write a command-line program that prints the number of lines spoken by each char
 
 ### Setup instructions
 
-Clone and setup the exercise repository:
+Fork and setup the exercise repository:
 
 ```
-git clone git@git.upcase.com:gerardoacuna/analyzing-shakespeare.git
+git clone <YOUR FORK ADDRESS>
 cd analyzing-shakespeare
 bin/setup
 ```
