@@ -1,27 +1,23 @@
 require 'nokogiri'
 
 class XmlAnalyzer
-  attr_reader :xml_path, :speakers_counter
+  attr_reader :xml_data, :speakers_counter
 
-  def initialize(url)
-    @xml_path = url
+  def initialize(xml)
+    @xml_data = xml
     @speakers_counter = {}
   end
 
   def analyze
-    parsed_xml = parse_xml(xml_path)
+    parsed_xml = parse_xml(xml_data)
     speakers = get_speakers(parsed_xml)
     speaker_counter_results = line_counter(parsed_xml)
     formatted_data = format_data(speaker_counter_results)
     formatted_data
   end
 
-  def parse_xml(url)
-    IO.copy_stream(xml_path, 'macbeth.xml')
-    macbeth_file = File.open("macbeth.xml")
-    doc = Nokogiri::XML(macbeth_file)
-    macbeth_file.close
-    doc
+  def parse_xml(data)
+    Nokogiri::XML(data)
   end
 
   def get_speakers(xml)
